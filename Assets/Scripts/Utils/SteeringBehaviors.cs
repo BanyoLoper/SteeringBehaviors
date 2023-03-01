@@ -20,8 +20,11 @@ public class SteeringBehaviors : MonoBehaviour
     private readonly Dictionary<string, Action> _actions = new Dictionary<string, Action>();
     private Vector3 _velocity, _steering, _desiredVelocity;
 
-    [SerializeField, Header("Wander Settings"), Range(1f,10f)]
-    private float timeChange;
+    [SerializeField, Header("Wander Settings"), Range(1f,10f)] private float timeChange;
+    [SerializeField] private float circleDistance;
+    [SerializeField] private float circleRadius;
+    [SerializeField] private float timeAngleChange;
+    private float _wanderAngle = 0;
     private Queue<Vector3> _wanderQueue = new Queue<Vector3>();
     private Vector3 _wanderTarget;
     private bool _isWandering = false;
@@ -89,8 +92,14 @@ public class SteeringBehaviors : MonoBehaviour
     private void Wander()
     {
         CheckQueue();
-        if (!_isWandering) StartCoroutine(wanderSteering());
-        _steering = Seek(_wanderTarget);
+        if (!_isWandering)
+        {
+            StartCoroutine(wanderSteering());
+            StartCoroutine(ChangeAngle());
+        }
+        Vector3 displacement = GetDisplacementForce();
+        
+        _steering = Seek(_wanderTarget) + Seek(displacement);
     }
 
     private void CheckQueue()
@@ -98,11 +107,21 @@ public class SteeringBehaviors : MonoBehaviour
         if (_wanderQueue.Count > 0) return;
         for (int i = 0 ;i < 10; i++)
         {
-            Vector3 randomTarget = new Vector3(Random.Range(-9.2f, 9.2f), 0.2f, Random.Range(-6.6f, 6.6f));
+            Vector3 randomTarget = new Vector3(Random.Range(-9.2f, 9.2f), 0.15f, Random.Range(-6.6f, 6.6f));
             _wanderQueue.Enqueue(randomTarget);
         }
     }
-    
+
+    private Vector3 GetDisplacementForce()
+    {
+        Vector3 circleCenter = _velocity.normalized * circleDistance;
+        Vector3 displacement = Vector3.forward * circleRadius;
+        displacement = Quaternion.AngleAxis(_wanderAngle, Vector3.up) * displacement;
+        
+        return circleCenter + displacement;
+
+    }
+
     IEnumerator wanderSteering()
     {
         _isWandering = true;
@@ -114,4 +133,13 @@ public class SteeringBehaviors : MonoBehaviour
         }
     }
 
+    IEnumerator ChangeAngle()
+    {
+        while (true)
+        {
+            _wanderAngle = Random.Range(-45f, 45f);
+            yield return new WaitForSeconds(timeAngleChange);
+        }
+    }
+    
 }

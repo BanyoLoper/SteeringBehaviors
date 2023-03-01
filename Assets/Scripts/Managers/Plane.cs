@@ -23,6 +23,5 @@ public class Plane : MonoBehaviour
         {
             playerTarget.position = info.point;
         }
-        
     }
 }

@@ -694,10 +694,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 3
   target: {fileID: 1440951949}
-  speed: 2
-  maxSpeed: 5
+  speed: 1
+  maxSpeed: 2
   slowingRadius: 10
   timeChange: 1.95
+  circleDistance: 1
+  circleRadius: 2
+  timeAngleChange: 2
 --- !u!135 &1539907853
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1006,6 +1009,9 @@ MonoBehaviour:
   maxSpeed: 6
   slowingRadius: 2
   timeChange: 0
+  circleDistance: 0
+  circleRadius: 0
+  timeAngleChange: 0
 --- !u!54 &1925933770
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1076,6 +1082,9 @@ MonoBehaviour:
   maxSpeed: 20
   slowingRadius: 20
   timeChange: 0
+  circleDistance: 0
+  circleRadius: 0
+  timeAngleChange: 0
 --- !u!135 &1944099349
 SphereCollider:
   m_ObjectHideFlags: 0
