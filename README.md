@@ -10,7 +10,7 @@ Unity Scripts for adding Steering Behaviors to Game Objects.
 
 More behaviors will be added soon
 
-### Instalation
+### Installation
 1. Clone the repository
 `
 git clone https://github.com/BanyoLoper/SteeringBehaviors.git
