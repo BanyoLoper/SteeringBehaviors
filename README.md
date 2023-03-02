@@ -11,6 +11,9 @@ Unity Scripts for adding Steering Behaviors to Game Objects.
 More behaviors will be added soon
 
 ### Installation
+There are 2 versions of the code, the current that's all in one script (old) and the Composite Version (WIP)
+
+Current (old)
 1. Clone the repository
 `
 git clone https://github.com/BanyoLoper/SteeringBehaviors.git
@@ -18,6 +21,8 @@ git clone https://github.com/BanyoLoper/SteeringBehaviors.git
 2. Add the script `SteeringBehaviors.cs` to your GameObject.
 3. Set up the parameters it needs.
 4. Run the game.
+
+
 
 
 ### Collaboration

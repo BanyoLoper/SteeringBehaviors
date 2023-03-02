@@ -15,7 +15,9 @@ public class SteeringBehaviors : MonoBehaviour
     private SteeringType type;
 
     [SerializeField] [CanBeNull] private Transform target;
+
     [SerializeField] private float speed, maxSpeed, slowingRadius;
+    
     
     private readonly Dictionary<string, Action> _actions = new Dictionary<string, Action>();
     private Vector3 _velocity, _steering, _desiredVelocity;
@@ -29,7 +31,11 @@ public class SteeringBehaviors : MonoBehaviour
     private Vector3 _wanderTarget;
     private bool _isWandering = false;
     
-
+    
+    public Transform Target { set => target = value; }
+    public float Speed { set => speed = value; }
+    public float TimeChange { set => timeChange = value; }
+    
     private void StartNewGame()
     {
         _actions.Add("Seek", CalculateSeek);
@@ -105,9 +111,11 @@ public class SteeringBehaviors : MonoBehaviour
     private void CheckQueue()
     {
         if (_wanderQueue.Count > 0) return;
-        for (int i = 0 ;i < 10; i++)
+
+        var points = NPC.GetRandomPoints(50f, 9f, 10);
+        foreach (var point in points)
         {
-            Vector3 randomTarget = new Vector3(Random.Range(-9.2f, 9.2f), 0.15f, Random.Range(-6.6f, 6.6f));
+            Vector3 randomTarget = new Vector3(point.x, 0.15f, point.y);
             _wanderQueue.Enqueue(randomTarget);
         }
     }
