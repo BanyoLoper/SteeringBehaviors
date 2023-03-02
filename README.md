@@ -13,6 +13,8 @@ More behaviors will be added soon
 ### Installation
 There are 2 versions of the code, the current that's all in one script (old) and the Composite Version (WIP)
 
+Notice that shaders needs URP.
+
 Current (old)
 1. Clone the repository
 `
