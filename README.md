@@ -22,8 +22,16 @@ git clone https://github.com/BanyoLoper/SteeringBehaviors.git
 3. Set up the parameters it needs.
 4. Run the game.
 
-
-
+New (WIP)
+1. Clone the repository
+`
+git clone https://github.com/BanyoLoper/SteeringBehaviors.git
+`
+2. Add the script `BehaviorController.cs` to your GameObject.
+3. Add any `Behhavior` such as `SeekBehavior.cs`
+4. Assign the `Behavior` to `BehaviorsList` in `BehaviorController`
+5. Set up the parameters you need.
+6. Run the game
 
 ### Collaboration
 Feel free to collaborate, this is a public repo made principally for Game Development students.
