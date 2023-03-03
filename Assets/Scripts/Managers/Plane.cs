@@ -1,12 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Plane : MonoBehaviour
 {
-    [SerializeField] private Transform playerTarget;
     private Plane _plane;
+    public Vector3 MouseClick = new Vector3(0f, 0f, 0f);
 
     private void Awake()
     {
@@ -21,7 +18,7 @@ public class Plane : MonoBehaviour
 
         if (Physics.Raycast(ray, out RaycastHit info))
         {
-            playerTarget.position = info.point;
+            MouseClick = info.point;
         }
     }
 }

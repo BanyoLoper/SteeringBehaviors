@@ -13,8 +13,6 @@ public class WanderBehavior : SteeringBehavior
 
     public override Vector3 GetForce()
     {
-
-
         Vector3 wanderForce = Vector3.zero;
         return wanderForce;
     }

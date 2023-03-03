@@ -2,15 +2,18 @@ using UnityEngine;
 
 public abstract  class SteeringBehavior : MonoBehaviour
 {
+    // Fields
     public float maxSpeed = 10f;
     public float maxForce = 5f;
-    public Vector3 target;
-    
-    private Rigidbody _rb;
+    public float speed = 2f;
+
+    // Properties
+    public Vector3 DesiredVelocity { get; set; }
+    public Rigidbody rb { get; set;}
 
     private void Awake()
     {
-        _rb = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
     }
 
     public abstract Vector3 GetForce();
