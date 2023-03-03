@@ -1,4 +1,4 @@
-# SteeringBehaviors v0.2.1
+# SteeringBehaviors v0.3.0
 Unity Scripts for adding Steering Behaviors to Game Objects.
 
 ### Behaviors Supported
