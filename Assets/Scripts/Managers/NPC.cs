@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -48,10 +46,6 @@ public class NPC : MonoBehaviour
         {
             GameObject npc = Instantiate(npcPrefab);
             npc.transform.position = new Vector3(point.x, 0.15f, point.y);
-            SteeringBehaviors npcSB = npc.GetComponent<SteeringBehaviors>();
-            npcSB.Target = _dummyTarget;
-            npcSB.TimeChange = Random.Range(1f, 2.5f);
-            npcSB.Speed = Random.Range(1f, 2.1f);
         }
     }
 }
