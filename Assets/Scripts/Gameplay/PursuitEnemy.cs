@@ -1,18 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PursuitEnemy : MonoBehaviour
+public class PursuitEnemy : SteeringBehavior
 {
-    // Start is called before the first frame update
+    [SerializeField, Header("Future Frames")]
+    private int T = 2;
+
+    [SerializeField] private string targetName = "Player";
+
+    private SeekBehavior _seek;
+    private Transform _player;
+    private Vector3 _futurePosition;
+
     void Start()
     {
-        
+        _seek = gameObject.GetComponent<SeekBehavior>();
+        _player = GameObject.Find(targetName).transform;
     }
 
-    // Update is called once per frame
-    void Update()
+    public override Vector3 GetForce()
     {
-        
+        _futurePosition = transform.position + rb.velocity * T;
+        return _seek.Seek(_futurePosition);
     }
+    
 }
