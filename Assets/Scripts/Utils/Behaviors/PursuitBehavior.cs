@@ -7,8 +7,6 @@ public class PursuitBehavior : SteeringBehavior
     private int T = 2;
     
     private SeekBehavior _seek;
-
-    private Vector3 _futurePosition;
     private Rigidbody _targetRb;
 
     void Start()
@@ -19,7 +17,7 @@ public class PursuitBehavior : SteeringBehavior
 
     public override Vector3 GetForce()
     {
-        _futurePosition = target.transform.position + _targetRb.velocity * T;
-        return _seek.Seek(_futurePosition);
+        _seek.seekPoint = target.transform.position + _targetRb.velocity * T;
+        return Vector3.zero;
     }
 }
