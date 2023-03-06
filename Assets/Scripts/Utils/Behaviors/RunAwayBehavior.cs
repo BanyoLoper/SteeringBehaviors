@@ -1,18 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class RunAwayBehavior : MonoBehaviour
+public class RunAwayBehavior : SteeringBehavior
 {
-    // Start is called before the first frame update
+    [SerializeField] private string targetName = "Player"; 
+        
+    private SeekBehavior _seek;
+    private Transform _player;
     void Start()
     {
-        
+        _seek = gameObject.GetComponent<SeekBehavior>();
+        _player = GameObject.Find(targetName).transform;
     }
 
-    // Update is called once per frame
-    void Update()
+    public override Vector3 GetForce()
     {
-        
+        return _seek.Seek(_player.position) * -1f;
     }
+    
 }
