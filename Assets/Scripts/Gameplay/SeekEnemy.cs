@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class SeekEnemy : MonoBehaviour
 {
     public Transform player;
     public SeekBehavior seek;
