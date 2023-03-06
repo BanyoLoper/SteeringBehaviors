@@ -3,12 +3,18 @@ Unity Scripts for adding Steering Behaviors to Game Objects.
 
 ### Behaviors Supported
 
-- Seek: `Transform` dependent, no arrival included.
-- Run Away: `Seek()` dependent.
-- Arrival: `Slowing Radius` dependent.
-- Wander: `Coroutine` dependent.
+- `Seek`: **Transform** dependent, no arrival included.
+- `Run Away`: **Seek()** dependent.
+- `Arrival`: **Slowing Radius** dependent.
+- `Wander`: **Coroutine** dependent.
 
-More behaviors will be added soon
+More behaviors will be added soon:
+- Pursuit
+- Evade
+- Collision Avoid
+- Path following
+- Leader Following
+- Queue
 
 ### Installation
 There are 2 versions of the code, the current that's all in one script (old) and the Composite Version (WIP)
