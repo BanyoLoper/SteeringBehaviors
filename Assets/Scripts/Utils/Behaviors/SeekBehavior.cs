@@ -3,8 +3,7 @@ using UnityEngine;
 public class SeekBehavior : SteeringBehavior
 {
     public Vector3 seekPoint;
-
-    private void Awake() => seekPoint = transform.position;
+    
     public override Vector3 GetForce()
     {
         return Seek(seekPoint);

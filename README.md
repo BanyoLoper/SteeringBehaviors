@@ -1,4 +1,4 @@
-# SteeringBehaviors v0.4.3
+# SteeringBehaviors v0.4.4
 Unity Scripts for adding Steering Behaviors to Game Objects.
 
 ### Behaviors Supported
@@ -8,10 +8,10 @@ Unity Scripts for adding Steering Behaviors to Game Objects.
 - `Arrival`: **Slowing Radius** dependent.
 - `Wander`: **Coroutine** dependent.
 - `Pursuit`: **Seek** and order in Behavior controller dependent.
+- `Collision Avoid`: **ObstacleList** dependent.
 
 More behaviors will be added soon:
 - Evade
-- Collision Avoid
 - Path following
 - Leader Following
 - Queue
