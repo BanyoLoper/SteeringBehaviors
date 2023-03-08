@@ -6,7 +6,7 @@ public class AvoidNPC : MonoBehaviour
 
     [SerializeField] private Transform goal;
     [SerializeField] private Transform start;
-    
+
     private SeekBehavior _seek;
 
     private void Start()

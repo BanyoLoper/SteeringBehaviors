@@ -345,7 +345,7 @@ GameObject:
   - component: {fileID: 418024828}
   - component: {fileID: 418024827}
   m_Layer: 0
-  m_Name: End
+  m_Name: Goal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -444,8 +444,10 @@ GameObject:
   - component: {fileID: 705830316}
   - component: {fileID: 705830318}
   - component: {fileID: 705830317}
+  - component: {fileID: 705830319}
+  - component: {fileID: 705830320}
   m_Layer: 0
-  m_Name: player
+  m_Name: AvoidNPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -527,7 +529,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &705830316
 Rigidbody:
@@ -557,9 +559,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a837e831e6dc984298af117ac90d48c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 30
-  maxForce: 10
-  speed: 10
+  maxSpeed: 5
+  maxForce: 5
+  speed: 5
   seekPoint: {x: 14.4, y: 0, z: 3.18}
 --- !u!114 &705830318
 MonoBehaviour:
@@ -575,6 +577,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   behaviors:
   - {fileID: 705830317}
+  - {fileID: 705830320}
+--- !u!114 &705830319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705830311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c67de2919dd13a648bfc526fa94df88a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  goal: {fileID: 418024826}
+  start: {fileID: 1459433862}
+--- !u!114 &705830320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705830311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 570614d211460af459180cef73e4934c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 10
+  maxForce: 5
+  speed: 2
+  maxSeeAhead: 1
+  obstacles: {fileID: 1522228557}
+  maxAvoidForce: 4
+  obstacleRadius: 0.4
 --- !u!1 &714210054
 GameObject:
   m_ObjectHideFlags: 0
@@ -881,7 +917,7 @@ GameObject:
   - component: {fileID: 1522228556}
   - component: {fileID: 1522228557}
   m_Layer: 0
-  m_Name: NPC Controller
+  m_Name: Obstacle Controller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -900,7 +936,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1522228557
 MonoBehaviour:
@@ -915,9 +951,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclePrefab: {fileID: 3141622195517377946, guid: 4affde789f8a244468760234b34c3660, type: 3}
-  numberOfObstacles: 50
-  zoneRadius: 8
-  separation: 0.6
+  numberOfObstacles: 120
+  zoneRadius: 6
+  separation: 0.3
+  obstacleList: []
 --- !u!1 &1617992449
 GameObject:
   m_ObjectHideFlags: 0
@@ -949,7 +986,7 @@ Transform:
   - {fileID: 1459433862}
   - {fileID: 418024826}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1700300861
 PrefabInstance:

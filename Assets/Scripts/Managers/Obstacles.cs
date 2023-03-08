@@ -9,6 +9,8 @@ public class Obstacles : MonoBehaviour
     [SerializeField] private float zoneRadius = 15f;
     [SerializeField] private float separation = 2f;
 
+    public List<Vector3> obstacleList = new List<Vector3>();
+
     private void Awake()
     {
         List<Vector2> points = GetRandomPoints(zoneRadius, separation, numberOfObstacles);
@@ -41,8 +43,9 @@ public class Obstacles : MonoBehaviour
 
         foreach (var point in points)
         {
-            GameObject obstacle = Instantiate(obstaclePrefab);
-            obstacle.transform.position = new Vector3(point.x, 0.3f, point.y);
+            GameObject obstacle = Instantiate(obstaclePrefab, transform);
+            obstacle.transform.position = new Vector3(point.x, 0.15f, point.y);
+            obstacleList.Add(obstacle.transform.position);
         }
     }
 }
